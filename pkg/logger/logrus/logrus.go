@@ -6,7 +6,7 @@ package logrus
 
 import (
 	"github.com/sirupsen/logrus"
-	"github.com/takama/k8sapp/pkg/logger"
+	"github.com/vic999/k8sapp/pkg/logger"
 )
 
 // New creates "github.com/sirupsen/logrus" logger

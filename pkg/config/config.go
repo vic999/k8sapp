@@ -6,7 +6,7 @@ package config
 
 import (
 	"github.com/kelseyhightower/envconfig"
-	"github.com/takama/k8sapp/pkg/logger"
+	"github.com/vic999/k8sapp/pkg/logger"
 )
 
 const (

@@ -5,8 +5,8 @@ import (
 	"syscall"
 	"testing"
 
-	"github.com/takama/k8sapp/pkg/logger"
-	"github.com/takama/k8sapp/pkg/logger/standard"
+	"github.com/vic999/k8sapp/pkg/logger"
+	"github.com/vic999/k8sapp/pkg/logger/standard"
 )
 
 const (

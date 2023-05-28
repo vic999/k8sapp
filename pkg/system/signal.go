@@ -11,7 +11,7 @@ import (
 	"sync"
 	"syscall"
 
-	"github.com/takama/k8sapp/pkg/logger"
+	"github.com/vic999/k8sapp/pkg/logger"
 )
 
 // SignalType describe
@@ -62,7 +62,7 @@ func NewSignals() *Signals {
 
 		shutdown:    []os.Signal{syscall.SIGINT, syscall.SIGTERM},
 		reload:      []os.Signal{syscall.SIGHUP},
-		maintenance: []os.Signal{syscall.SIGUSR1},
+		maintenance: []os.Signal{syscall.SIGHUP},
 	}
 	signal.Notify(signals.interrupt)
 	return signals

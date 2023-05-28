@@ -8,7 +8,7 @@ import (
 	"os"
 
 	"github.com/rs/xlog"
-	"github.com/takama/k8sapp/pkg/logger"
+	"github.com/vic999/k8sapp/pkg/logger"
 )
 
 // newXLog creates "github.com/rs/xlog" logger

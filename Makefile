@@ -3,8 +3,8 @@
 # license that can be found in the LICENSE file.
 
 APP=k8sapp
-PROJECT=github.com/takama/k8sapp
-REGISTRY?=docker.io/takama
+PROJECT=github.com/vic999/k8sapp
+REGISTRY?=docker.io/vic999
 CA_DIR?=certs
 
 # Use the 0.0.0 tag for testing, it shouldn't clobber any release builds

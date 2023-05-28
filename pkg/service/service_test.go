@@ -8,8 +8,8 @@ import (
 	"github.com/takama/bit"
 	// Alternative of the Bit router with the same Router interface
 	// "github.com/takama/k8sapp/pkg/router/httprouter"
-	"github.com/takama/k8sapp/pkg/config"
-	"github.com/takama/k8sapp/pkg/handlers"
+	"github.com/vic999/k8sapp/pkg/config"
+	"github.com/vic999/k8sapp/pkg/handlers"
 )
 
 func TestSetup(t *testing.T) {

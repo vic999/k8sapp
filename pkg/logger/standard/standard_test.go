@@ -5,8 +5,8 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/takama/k8sapp/pkg/config"
-	"github.com/takama/k8sapp/pkg/logger"
+	"github.com/vic999/k8sapp/pkg/config"
+	"github.com/vic999/k8sapp/pkg/logger"
 )
 
 func TestNewLog(t *testing.T) {

@@ -8,7 +8,7 @@ import (
 	"net/http"
 
 	"github.com/julienschmidt/httprouter"
-	"github.com/takama/k8sapp/pkg/router"
+	"github.com/vic999/k8sapp/pkg/router"
 )
 
 type httpRouter struct {
