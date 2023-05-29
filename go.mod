@@ -13,7 +13,6 @@ require (
 	github.com/sirupsen/logrus v1.0.3
 	github.com/stretchr/testify v1.8.3 // indirect
 	github.com/takama/bit v0.0.0-20171205170444-2cdb1c532bac
-	github.com/takama/k8sapp v0.0.0-20180101125012-cd4b7d13971b
 	golang.org/x/crypto v0.0.0-20170825220121-81e90905daef // indirect
 	golang.org/x/net v0.0.0-20170828231752-66aacef3dd8a // indirect
 	golang.org/x/sys v0.0.0-20170901181214-7ddbeae9ae08 // indirect
