@@ -5,9 +5,9 @@
 package handlers
 
 import (
-	"net/http"
-
 	"github.com/takama/bit"
+	"net/http"
+	"sync/atomic"
 	// Alternative of the Bit router with the same Router interface
 	// "github.com/takama/k8sapp/pkg/router/httprouter"
 )
@@ -19,4 +19,17 @@ func (h *Handler) Ready(c bit.Control) {
 
 	c.Code(http.StatusOK)
 	c.Body(http.StatusText(http.StatusOK))
+}
+
+// Base handler implements middleware logic
+func (h *Handler) ReadyWaiting(isReady *atomic.Value) func(bit.Control) {
+	return func(c bit.Control) {
+		if isReady == nil || !isReady.Load().(bool) {
+			c.Code(http.StatusServiceUnavailable)
+			c.Body(http.StatusText(http.StatusServiceUnavailable))
+			return
+		}
+		c.Code(http.StatusOK)
+		c.Body(http.StatusText(http.StatusOK))
+	}
 }

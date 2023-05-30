@@ -6,6 +6,8 @@ package service
 
 import (
 	"net/http"
+	"sync/atomic"
+	"time"
 
 	"github.com/takama/bit"
 	// Alternative of the Bit router with the same Router interface
@@ -29,6 +31,14 @@ func Setup(cfg *config.Config) (r bit.Router, log logger.Logger, err error) {
 	log.Info("Version:", version.RELEASE)
 	log.Warnf("%s log level is used", logger.LevelDebug.String())
 	log.Infof("Service %s listened on %s:%d", config.SERVICENAME, cfg.LocalHost, cfg.LocalPort)
+	isReady := &atomic.Value{}
+	isReady.Store(false)
+	go func() {
+		log.Infof("Readyz probe is negative by default... waiting 30 sec")
+		time.Sleep(30 * time.Second)
+		isReady.Store(true)
+		log.Infof("Readyz probe is positive.")
+	}()
 
 	// Define handlers
 	h := handlers.New(log, cfg)
@@ -43,7 +53,7 @@ func Setup(cfg *config.Config) (r bit.Router, log logger.Logger, err error) {
 	r.SetupMiddleware(h.Base)
 	r.GET("/", h.Root)
 	r.GET("/healthz", h.Health)
-	r.GET("/readyz", h.Ready)
+	r.GET("/readyz", h.ReadyWaiting(isReady))
 	r.GET("/info", h.Info)
 
 	return
